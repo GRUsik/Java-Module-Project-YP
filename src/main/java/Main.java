@@ -27,7 +27,7 @@ public class Main {
                 System.out.println("Введите количество гостей: ");
             } catch (final InputMismatchException e) {
                 System.out.println("Введено некорректное значение\nВведите количество гостей: ");
-                continue;
+
             }
 
         }
@@ -38,8 +38,17 @@ public class Main {
             System.out.println("Итоговая сумма заказа: " + calculature.allCost);
             shet = calculature.allCost / people;
             String result = String.format("%.2f",shet);
-            switch  ((int) shet%10) {
+            switch  ((int) shet%100) {
                 case 0:
+                case 11:
+                case 12:
+                case 13:
+                case 14:
+                case 15:
+                case 16:
+                case 17:
+                case 18:
+                case 19:
                     System.out.println("Счет на каждого гостя равен: " + result + " рублей");
                     break;
                 case 1:
