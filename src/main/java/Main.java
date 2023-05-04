@@ -38,34 +38,24 @@ public class Main {
             System.out.println("Итоговая сумма заказа: " + calculature.allCost);
             shet = calculature.allCost / people;
             String result = String.format("%.2f",shet);
-            switch  ((int) shet%100) {
-                case 0:
-                case 11:
-                case 12:
-                case 13:
-                case 14:
-                case 15:
-                case 16:
-                case 17:
-                case 18:
-                case 19:
-                    System.out.println("Счет на каждого гостя равен: " + result + " рублей");
-                    break;
-                case 1:
-                    System.out.println("Счет на каждого гостя равен: " + result + " рубль");
-                    break;
-                case 2:
-                case 3:
-                case 4:
-                    System.out.println("Счет на каждого гостя равен: " + result + " рубля");
-                    break;
-                case 5:
-                case 6:
-                case 7:
-                case 8:
-                case 9:
-                    System.out.println("Счет на каждого гостя равен: " + result + "рублей");
-                    break;
+            if ((int) shet % 100 >= 11 && (int) shet % 100 <= 14) {
+                System.out.println("Счет на каждого гостя равен: " + result + " рублей");
+            } else {
+                // если условие выше не сработало, то проверяем остаток от 10
+
+                switch ((int) shet % 10) {
+                    case 1:
+                        System.out.println("Счет на каждого гостя равен: " + result + " рубль");
+                        break;
+                    case 2:
+                    case 3:
+                    case 4:
+                        System.out.println("Счет на каждого гостя равен: " + result + " рубля");
+                        break;
+                    default:
+                        System.out.println("Счет на каждого гостя равен: " + result + " рублей");
+                        break;
+                }
             }
         }
     }
